@@ -3,6 +3,7 @@ const chalk = require('chalk');             // change color in command line
 const debug = require('debug')('app');      // show what's actually working 
 const morgan = require('morgan');           
 const path = require('path');               // path (locate the folders or files)
+const productRouter = express.Router();
 
 const app = express();                      
 const PORT = process.env.PORT || 4000;                          // port (localhost)
@@ -13,6 +14,16 @@ app.use(express.static(path.join(__dirname, '/public/')));
 
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
+
+productRouter.route("/").get((req,res) =>{
+    res.send("Hello World !! I'm Product");
+});
+
+productRouter.route("/1").get((req,res) =>{
+    res.send("Hello World !! I'm Product1");
+});
+
+app.use("/products", productRouter)
 
 app.get("/", (req,res) =>{
 

@@ -3,6 +3,7 @@ const chalk = require('chalk');             // change color in command line
 const debug = require('debug')('app');      // show what's actually working 
 const morgan = require('morgan');           
 const path = require('path');               // path (locate the folders or files)
+const products = require("./data/products.json");       // data products path (locate the folders or files of products)
 const productRouter = express.Router();
 
 const app = express();                      
@@ -16,14 +17,9 @@ app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
 productRouter.route("/").get((req,res) =>{
-    res.render("products", {
-        products: [
-            {productTitle: "น้ำยาล้างจาน", productDescription: "น้ำยาล้างจานสูตร 1 ดีเลิศ", productPrice: 45},
-            {productTitle: "น้ำยาล้างจาน 2", productDescription: "น้ำยาล้างจานสูตร 2 ดีเลิศ", productPrice: 65},
-            {productTitle: "น้ำยาล้างจาน 3", productDescription: "น้ำยาล้างจานสูตร 3 ดีเลิศ", productPrice: 35},
-            {productTitle: "น้ำยาล้างจาน 4", productDescription: "น้ำยาล้างจานสูตร 4 ดีเลิศ", productPrice: 55},
-        ],
-    });
+    res.render("products",
+        products,
+    );
 });
 
 productRouter.route("/1").get((req,res) =>{

@@ -1,12 +1,12 @@
 const express = require('express');
 const chalk = require('chalk');             // change color in command line
 const debug = require('debug')('app');      // show what's actually working 
-const morgan = require('morgan');           
+const morgan = require('morgan');
 const path = require('path');               // path (locate the folders or files)
 
-const app = express();                      
+const app = express();
 const PORT = process.env.PORT || 4000;                          // port (localhost)
-const productRouter = require("./scr/router/productRouter");
+const productRouter = require("./src/router/productsRouter");
 
 
 app.use(morgan('combined'));
@@ -17,12 +17,12 @@ app.set("view engine", "ejs");
 
 app.use("/products", productsRouter)
 
-app.get("/", (req,res) =>{
+app.get("/", (req, res) => {
 
-    res.render("index",{username: 'Brighttt', customers: ["BrighteSS","Bowornrat","Boworn"]});
+    res.render("index", { username: 'Brighttt', customers: ["BrighteSS", "Bowornrat", "Boworn"] });
 
 })
 
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     debug("Listening on port" + chalk.blueBright(" : " + PORT));
 })

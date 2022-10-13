@@ -17,4 +17,4 @@ productsRouter.route("/:id").get((req,res) =>{
     });
 });
 
-module.exports = productRouter;
+module.exports = productsRouter;

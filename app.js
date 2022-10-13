@@ -5,8 +5,8 @@ const morgan = require('morgan');
 const path = require('path');               // path (locate the folders or files)
 
 const app = express();
-const PORT = process.env.PORT || 4000;                          // port (localhost)
-const productRouter = require("./src/router/productsRouter");
+const PORT = process.env.PORT || 4000;      // port (localhost)
+const productsRouter = require("./src/router/productsRouter");
 
 
 app.use(morgan('combined'));

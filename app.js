@@ -9,7 +9,7 @@ app.use(morgan('combined'));
 
 app.get("/", (req,res) =>{
 
-    res.send("Hello Bowornrat");
+    res.send("Hello Bright");
 
 })
 
